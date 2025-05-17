@@ -50,7 +50,7 @@ hh_project/
 git clone https://github.com/your_username/hh_project.git
 cd hh_project
 
-2. установка зависимостей: 
+2. Установка зависимостей : 
 pip install -r requirements.txt
 
 3. Настройте подключение к вашей базе данных PostgreSQL в config.py:
@@ -61,7 +61,7 @@ DB_CONFIG = {
     'host': 'localhost'  # или другой адрес
 }
 
-4. запуск:  
+4. Запуск:  
 python main.py
 5. Примеры работы с DBManager: 
 db = DBManager()

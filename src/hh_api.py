@@ -25,3 +25,4 @@ def get_vacancies(employer_id):
         page += 1
         time.sleep(0.2)
     return vacancies
+#hhru..
