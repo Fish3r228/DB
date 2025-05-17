@@ -55,4 +55,4 @@ def insert_vacancies(vacancies, company_id):
                     vacancy["alternate_url"]
                 ))
         conn.commit()
-# db conf
+# db confi

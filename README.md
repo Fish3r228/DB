@@ -50,7 +50,7 @@ hh_project/
 git clone https://github.com/your_username/hh_project.git
 cd hh_project
 
-2. Установка зависимостей: 
+2. Установка зависимостей : 
 pip install -r requirements.txt
 
 3. Настройте подключение к вашей базе данных PostgreSQL в config.py:
