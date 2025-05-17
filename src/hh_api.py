@@ -1,0 +1,27 @@
+import requests
+import time
+
+def get_employer_info(employer_id):
+    response = requests.get(f'https://api.hh.ru/employers/{employer_id}')
+    if response.status_code == 200:
+        return response.json()
+    return None
+
+def get_vacancies(employer_id):
+    vacancies = []
+    page = 0
+    while True:
+        response = requests.get('https://api.hh.ru/vacancies', params={
+            'employer_id': employer_id,
+            'page': page,
+            'per_page': 100
+        })
+        if response.status_code != 200:
+            break
+        data = response.json()
+        vacancies.extend(data['items'])
+        if page >= data['pages'] - 1:
+            break
+        page += 1
+        time.sleep(0.2)
+    return vacancies
