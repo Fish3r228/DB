@@ -61,7 +61,7 @@ DB_CONFIG = {
     'host': 'localhost'  # или другой адрес
 }
 
-4. запуск:  
+4. Запуск:  
 python main.py
 5. Примеры работы с DBManager: 
 db = DBManager()
