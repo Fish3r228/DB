@@ -73,4 +73,4 @@ def test_get_vacancies_with_keyword(mock_db_connection):
     db = DBManager()
     result = db.get_vacancies_with_keyword("Python")
     assert "Python" in result[0][0]
-#6
+#

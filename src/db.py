@@ -65,4 +65,4 @@ def insert_vacancies(vacancies: List[Dict[str, Any]], company_id: int) -> None:
                     vacancy["alternate_url"]
                 ))
         conn.commit()
-#2
+#
