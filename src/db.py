@@ -1,7 +1,11 @@
 import psycopg2
 from config import DB_CONFIG
+from typing import Dict, Any, List
 
-def create_tables():
+def create_tables() -> None:
+    """
+    Создает таблицы companies и vacancies в базе данных.
+    """
     with psycopg2.connect(**DB_CONFIG) as conn:
         with conn.cursor() as cur:
             cur.execute("""
@@ -25,7 +29,10 @@ def create_tables():
             """)
         conn.commit()
 
-def insert_company(company):
+def insert_company(company: Dict[str, Any]) -> int:
+    """
+    Вставляет работодателя в таблицу companies.
+    """
     with psycopg2.connect(**DB_CONFIG) as conn:
         with conn.cursor() as cur:
             cur.execute("""
@@ -37,7 +44,10 @@ def insert_company(company):
             result = cur.fetchone()
             return result[0] if result else None
 
-def insert_vacancies(vacancies, company_id):
+def insert_vacancies(vacancies: List[Dict[str, Any]], company_id: int) -> None:
+    """
+    Вставляет список вакансий в таблицу vacancies.
+    """
     with psycopg2.connect(**DB_CONFIG) as conn:
         with conn.cursor() as cur:
             for vacancy in vacancies:
@@ -55,4 +65,3 @@ def insert_vacancies(vacancies, company_id):
                     vacancy["alternate_url"]
                 ))
         conn.commit()
-# db confi
