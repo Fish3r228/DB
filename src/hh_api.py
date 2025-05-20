@@ -32,3 +32,4 @@ def get_vacancies(employer_id: int) -> List[Dict[str, Any]]:
         page += 1
         time.sleep(0.2)
     return vacancies
+#4
