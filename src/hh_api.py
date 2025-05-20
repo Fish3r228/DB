@@ -1,13 +1,20 @@
 import requests
 import time
+from typing import Optional, List, Dict, Any
 
-def get_employer_info(employer_id):
+def get_employer_info(employer_id: int) -> Optional[Dict[str, Any]]:
+    """
+    Получает информацию о работодателе по ID.
+    """
     response = requests.get(f'https://api.hh.ru/employers/{employer_id}')
     if response.status_code == 200:
         return response.json()
     return None
 
-def get_vacancies(employer_id):
+def get_vacancies(employer_id: int) -> List[Dict[str, Any]]:
+    """
+    Получает список всех вакансий от указанного работодателя.
+    """
     vacancies = []
     page = 0
     while True:
@@ -25,4 +32,4 @@ def get_vacancies(employer_id):
         page += 1
         time.sleep(0.2)
     return vacancies
-#hhru..
+#

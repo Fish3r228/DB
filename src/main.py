@@ -3,7 +3,10 @@ from hh_api import get_employer_info, get_vacancies
 from db import create_tables, insert_company, insert_vacancies
 from db_manager import DBManager
 
-def main():
+def main() -> None:
+    """
+    Главная функция: загружает данные и демонстрирует использование DBManager.
+    """
     create_tables()
 
     for emp_id in EMPLOYER_IDS:
@@ -16,7 +19,7 @@ def main():
                 insert_vacancies(vacancies, company_id)
 
     db = DBManager()
-    print("Компании и количество вакансий:")
+    print("\nКомпании и количество вакансий:")
     for row in db.get_companies_and_vacancies_count():
         print(row)
 
@@ -30,4 +33,4 @@ def main():
 
 if __name__ == '__main__':
     main()
-#main..
+#
